@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>пр2</title>
+</head>
+<body>
+<h1>Редактирование статьи</h1>
+<div th:each="el : ${car}">
+<form  method="post">
+
+  <input type="text" th:value="${el.getMarks()}" name="marks" placeholder="Модель авто"><br>
+  <input type="text" th:value="${el.getVin()}" name="vin" placeholder="Vin номер"><br>
+  <input type="text" th:value="${el.getNumberengen()}" name="numberengen" placeholder="номер двигателя"><br>
+  <input type="date" th:value="${el.getYear()}" name="year" placeholder="Год выпуска"><br>
+  <input type="text" th:value="${el.getColor()}" name="color" placeholder="Цвет авто"><br>
+  <button type="submit"> Изменить данные автомобиля</button>
+</form>
+</div>
+</body>
+</html>

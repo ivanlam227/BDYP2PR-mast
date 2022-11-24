@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>пр2</title>
+</head>
+<body>
+
+
+<h1>сотрудники</h1>
+<a href="/Search/Employee"> Поиск сотрудника</a>
+<a href="/Add/Employee"> Добавить сотрудника</a>
+<div th:each="el : ${employee}">
+    <h3><b> Фамилия -  </b> <span th:text="${el.getLastname()}" /></h3>
+    <p><b>Имя -   </b> <span th:text="${el.getName()}"/></p>
+    <p><b> Отчество -  </b> <span th:text="${el.getMiddlename()}"/></p>
+    <p><b> Дата рождения - </b> <span th:text="${el.getBirthday()}"/></p>
+    <p><b> Стаж работы - </b> <span th:text="${el.getExpetienxs()}"/></p>
+
+    <form  th:action="'/blog/Employee/' + ${el.id} + '/Edit'">
+        <button class="btn btn-warning" type="submit">Изменить</button>
+    </form>
+    <form th:action="'/blog/Employee/' + ${el.id} + '/Remove'" method="post">
+        <button class="btn btn-warning" type="submit" >Удалить</button>
+    </form>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>пр2</title>
+</head>
+<body>
+
+<h1>Автомобили</h1>
+<a href="/Search/Car"> Поиск Автомобиля</a>
+<a href="/Add/Car"> Добавить Автомобиль</a>
+<div th:each="el : ${car}">
+    <h3><b> Марка -  </b> <span th:text="${el.getMarks()}" /></h3>
+    <p><b> Вин -  </b> <span th:text="${el.getVin()}"/></p>
+    <p><b> Номер Двигателя -  </b> <span th:text="${el.getNumberengen()}"/></p>
+    <p><b> Год выпуска -  </b> <span th:text="${el.getYear()}"/></p>
+    <p><b> Цвет -  </b> <span th:text="${el.getColor()}"/></p>
+    <form  th:action="'/blog/Car/' + ${el.id} + '/Edit'">
+        <button class="btn btn-warning" type="submit">Изменить</button>
+    </form>
+    <form th:action="'/blog/Car/' + ${el.id} + '/Remove'" method="post">
+        <button class="btn btn-warning" type="submit" >Удалить</button>
+    </form>
+
+</div>
+</body>
+</html>
